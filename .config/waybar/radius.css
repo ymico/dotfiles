@@ -1,0 +1,31 @@
+/* Dynamic Border Radius & Font */
+* {
+    border-radius: 0px;
+    font-family: "Departure Mono", "Terminess Nerd Font", monospace;
+}
+.modules-left,
+.modules-center,
+.modules-right,
+#image,
+#workspaces button,
+#mpris,
+#custom-mpris,
+#custom-media-prev,
+#custom-media-play,
+#custom-media-next,
+#clock,
+#language,
+#pulseaudio,
+#cpu,
+#memory,
+#tray,
+#custom-notification,
+tooltip,
+.control-center,
+.notification,
+.notification-content,
+.widget-dnd > switch,
+.widget-dnd > switch slider {
+    border-radius: 0px;
+    font-family: "Departure Mono", "Terminess Nerd Font", monospace;
+}

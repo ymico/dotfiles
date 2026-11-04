@@ -1,0 +1,10 @@
+/* Dynamic Wallpaper Theme Colors */
+@define-color bg #08050e;
+@define-color bg_card #130c22;
+@define-color border_container #271945;
+@define-color border_card #1e1336;
+@define-color accent #c084fc;
+@define-color accent_dim #9333ea;
+@define-color accent_fg #000000;
+@define-color text #f3e8ff;
+@define-color text_dim #a855f7;

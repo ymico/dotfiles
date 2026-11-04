@@ -1,0 +1,14 @@
+/* Dynamic Wallpaper Theme Colors for Rofi */
+* {
+    bg: #08050e;
+    bg-alt: #130c22;
+    fg: #f3e8ff;
+    fg-dim: #a855f7;
+    accent: #c084fc;
+    accent-fg: #000000;
+    border-col: #c084fc;
+    border-card: #1e1336;
+    border-radius: 0px;
+    theme-font: "Departure Mono 11";
+    theme-icon-font: "JetBrainsMono Nerd Font Propo 24";
+}

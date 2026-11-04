@@ -1,0 +1,176 @@
+{
+    "layer": "top",
+    "position": "top",
+    "exclusive": true,
+    "passthrough": false,
+    "height": 32,
+    "margin-top": 6,
+    "margin-left": 12,
+    "margin-right": 12,
+    "spacing": 4,
+
+    "modules-left": [
+        "image#logo",
+        "hyprland/workspaces",
+        "group/media"
+    ],
+
+    "image#logo": {
+        "path": "/home/ym1co/.config/assets/logo-icon.png",
+        "size": 20,
+        "tooltip": true,
+        "tooltip-format": "ym1co • Application Menu (Super+D)",
+        "on-click": "rofi -show drun"
+    },
+
+    "modules-center": [
+        "clock"
+    ],
+
+    "modules-right": [
+        "hyprland/language",
+        "pulseaudio",
+        "pulseaudio#microphone",
+        "cpu",
+        "memory",
+        "tray"
+    ],
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{name}",
+        "on-click": "activate"
+    },
+
+    "group/media": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 300,
+            "children-class": "media-controls",
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "custom/mpris",
+            "custom/media-prev",
+            "custom/media-play",
+            "custom/media-next"
+        ]
+    },
+
+    "custom/mpris": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "/home/ym1co/.local/bin/waybar-mpris",
+        "on-click": "/home/ym1co/.local/bin/media-ctl play-pause",
+        "on-click-right": "/home/ym1co/.local/bin/media-ctl next",
+        "on-click-middle": "/home/ym1co/.local/bin/media-ctl previous",
+        "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+    },
+
+    "custom/media-prev": {
+        "format": "󰒮",
+        "tooltip": true,
+        "tooltip-format": "Previous track",
+        "on-click": "/home/ym1co/.local/bin/media-ctl previous"
+    },
+
+    "custom/media-play": {
+        "format": "󰐊",
+        "tooltip": true,
+        "tooltip-format": "Play / Pause",
+        "on-click": "/home/ym1co/.local/bin/media-ctl play-pause"
+    },
+
+    "custom/media-next": {
+        "format": "󰒭",
+        "tooltip": true,
+        "tooltip-format": "Next track",
+        "on-click": "/home/ym1co/.local/bin/media-ctl next"
+    },
+
+    "clock": {
+        "format": " {:%H:%M   %d %b}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>\n\n• LMB: Open Notification Center\n• RMB: Clear All\n• MMB: Toggle DND",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -C -sw",
+        "on-click-middle": "swaync-client -d -sw"
+    },
+
+    "hyprland/language": {
+        "format": "󰌌 {}",
+        "format-en": "US",
+        "format-ru": "RU",
+        "keyboard-name": "royuan-epomaker-rt80",
+        "tooltip": true,
+        "tooltip-format": "Keyboard Layout: {long}\n\n• LMB: Switch Layout (Alt+Shift)",
+        "on-click": "hyprctl switchxkblayout all next"
+    },
+
+    "cpu": {
+        "format": "󰻠 {usage}%",
+        "interval": 2,
+        "tooltip": true,
+        "tooltip-format": "CPU Usage: {usage}%"
+    },
+
+    "memory": {
+        "format": "󰍛 {percentage}%",
+        "interval": 2,
+        "tooltip": true,
+        "tooltip-format": "RAM: {used:0.1f}GiB / {total:0.1f}GiB ({percentage}%)"
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰖁 Mute",
+        "format-icons": {
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "tooltip": true,
+        "tooltip-format": "{desc}\nVolume: {volume}%\n\n• LMB: Application Volume Mixer\n• RMB: Toggle Mute\n• Scroll: Volume (±5%)",
+        "on-click": "/home/ym1co/.local/bin/volume-mixer",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+    },
+
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": "󰍬 {volume}%",
+        "format-source-muted": "󰍭 OFF",
+        "tooltip": true,
+        "tooltip-format": "Input: {volume}%\n\n• LMB: Toggle Microphone\n• Scroll: Input Volume (±5%)",
+        "on-click": "/home/ym1co/.local/bin/toggle-mic",
+        "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-"
+    },
+
+    "tray": {
+        "icon-size": 14,
+        "spacing": 8
+    },
+
+    "custom/notification": {
+        "tooltip": true,
+        "tooltip-format": "Notifications (LMB: Open Drawer, RMB: DND)",
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "󱅫",
+            "none": "󰂚",
+            "dnd-notification": "󱅫",
+            "dnd-none": "󰂛",
+            "inhibited-notification": "󱅫",
+            "inhibited-none": "󰂚",
+            "dnd-inhibited-notification": "󱅫",
+            "dnd-inhibited-none": "󰂛"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    }
+}

@@ -1,0 +1,93 @@
+@import "colors.rasi"
+
+* {
+    bg-col:        @bg;
+    bg-col-panel:  @bg-alt;
+    border-col:    @border-col;
+    text-col:      @fg;
+    accent-col:    @accent;
+    urgent-col:    @accent;
+
+    background-color: transparent;
+    text-color: @text-col;
+    font: @theme-font;
+}
+
+window {
+    background-color: @bg-col;
+    border: 2px;
+    border-color: @border-col;
+    border-radius: @border-radius;
+    width: 560px;
+    padding: 16px;
+    location: center;
+}
+
+mainbox {
+    background-color: transparent;
+    children: [ inputbar, listview ];
+    spacing: 12px;
+}
+
+inputbar {
+    background-color: @bg-col-panel;
+    border: 1px;
+    border-color: @border-card;
+    border-radius: @border-radius;
+    padding: 10px 14px;
+    children: [ prompt, entry ];
+}
+
+prompt {
+    background-color: transparent;
+    text-color: @accent-col;
+    font-weight: 800;
+    padding: 0 8px 0 0;
+}
+
+entry {
+    background-color: transparent;
+    text-color: @fg;
+    font-weight: 700;
+    placeholder: "Type to search...";
+    placeholder-color: @fg-dim;
+}
+
+listview {
+    background-color: transparent;
+    columns: 1;
+    lines: 7;
+    spacing: 6px;
+    cycle: true;
+    dynamic: true;
+    scrollbar: false;
+}
+
+element {
+    background-color: transparent;
+    text-color: @text-col;
+    border-radius: @border-radius;
+    border: 1px;
+    border-color: transparent;
+    padding: 8px 12px;
+}
+
+element selected {
+    background-color: @accent;
+    text-color: @accent-fg;
+    border: 1px;
+    border-color: @accent;
+}
+
+element-icon {
+    size: 20px;
+    margin: 0 10px 0 0;
+    background-color: transparent;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    vertical-align: 0.5;
+    font-weight: 700;
+}

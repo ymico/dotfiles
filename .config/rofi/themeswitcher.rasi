@@ -1,0 +1,79 @@
+configuration {
+    show-icons: true;
+}
+
+@import "colors.rasi"
+
+* {
+    background-color: transparent;
+    text-color: @fg;
+    font: @theme-font;
+}
+
+window {
+    width: 960px;
+    background-color: @bg;
+    border: 2px;
+    border-color: @border-col;
+    border-radius: @border-radius;
+    padding: 16px;
+    location: center;
+}
+
+mainbox {
+    background-color: @bg;
+    children: [ inputbar, listview ];
+    spacing: 14px;
+}
+
+inputbar {
+    background-color: @bg;
+    children: [ prompt ];
+}
+
+prompt {
+    background-color: @bg;
+    font: @theme-font;
+    text-color: @accent;
+    horizontal-align: 0.5;
+}
+
+listview {
+    background-color: @bg;
+    lines: 6;
+    columns: 2;
+    spacing: 10px;
+    cycle: true;
+    scrollbar: false;
+}
+
+element {
+    orientation: horizontal;
+    children: [ element-icon, element-text ];
+    spacing: 12px;
+    padding: 8px 12px;
+    border-radius: @border-radius;
+    border: 1px;
+    border-color: @border-card;
+    background-color: @bg-alt;
+}
+
+element-icon {
+    size: 40px;
+    border-radius: @border-radius;
+    vertical-align: 0.5;
+}
+
+element selected {
+    background-color: @accent;
+    text-color: @accent-fg;
+    border: 1px;
+    border-color: @accent;
+}
+
+element-text {
+    vertical-align: 0.5;
+    text-color: inherit;
+    font: @theme-font;
+    font-weight: 700;
+}

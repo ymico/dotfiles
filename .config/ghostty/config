@@ -1,0 +1,44 @@
+# ~/.config/ghostty/config
+font-family = Departure Mono
+font-size = 11
+window-padding-x = 15
+window-padding-y = 8
+
+# Theme colors dynamically managed by apply-theme
+config-file = ?/home/ym1co/.config/ghostty/theme-active
+
+# Background transparency & styling (0.4 transparency, no blur)
+background-opacity = 0.4
+background-opacity-cells = true
+background-blur = false
+
+cursor-style = block
+copy-on-select = clipboard
+confirm-close-surface = false
+
+# Без заголовочной полосы — чистое окно
+window-decoration = none
+window-save-state = never
+
+# Оболочка
+command = /bin/zsh
+
+# Быстрая перезагрузка конфига
+keybind = ctrl+shift+r=reload_config
+
+# ---------- Сплиты ----------
+keybind = super+w=new_split:up
+keybind = super+a=new_split:left
+keybind = super+s=new_split:down
+keybind = super+d=new_split:right
+
+keybind = ctrl+w=goto_split:up
+keybind = ctrl+a=goto_split:left
+keybind = ctrl+s=goto_split:down
+keybind = ctrl+d=goto_split:right
+
+# Закрытие
+keybind = super+q=close_window
+
+gtk-single-instance = false
+quit-after-last-window-closed = false

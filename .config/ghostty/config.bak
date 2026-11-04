@@ -1,0 +1,18 @@
+# ~/.config/ghostty/config
+font-family = Source Code Pro
+font-size = 11
+window-padding-x = 15
+window-padding-y = 8
+background-opacity = 0.96
+cursor-style = block
+copy-on-select = clipboard
+confirm-close-surface = false
+window-decoration = true
+
+# размер окна в ячейках (~1920x1080 при Source Code Pro 11)
+window-width = 210
+window-height = 56
+window-save-state = never
+
+# оболочка принудительно, чтобы не зависеть от устаревшего $SHELL в сессии
+command = /bin/zsh

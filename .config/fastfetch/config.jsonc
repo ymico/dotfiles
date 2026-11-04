@@ -1,0 +1,64 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "source": "/home/ym1co/.config/fastfetch/logo-active.png",
+    "type": "kitty",
+    "width": 22,
+    "height": 16,
+    "position": "left",
+    "padding": {
+      "top": 0,
+      "left": 2,
+      "right": 4
+    }
+  },
+  "display": {
+    "separator": " \u001b[38;2;147;51;234m\u2502\u001b[0m "
+  },
+  "modules": [
+    {
+      "type": "custom",
+      "format": " \u001b[1;38;2;192;132;252m\u2500\u2500 \u2726 \u2500\u2500 \u001b[1;37mym1co\u001b[0m\u001b[38;2;160;160;160m@fedora\u001b[0m \u001b[1;38;2;192;132;252m\u2500\u2500 \u2726 \u2500\u2500\u001b[0m"
+    },
+    {
+      "type": "custom",
+      "format": " \u001b[38;2;147;51;234m\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u001b[0m"
+    },
+    "break",
+    {
+      "type": "os",
+      "key": " \u001b[1;38;2;192;132;252m\udb82\udcdb os    \u001b[0m",
+      "format": "{2} ({12})"
+    },
+    "break",
+    {
+      "type": "shell",
+      "key": " \u001b[1;38;2;192;132;252m\udb81\udfb5 shell \u001b[0m"
+    },
+    "break",
+    {
+      "type": "uptime",
+      "key": " \u001b[1;38;2;192;132;252m\udb82\udd54 uptime\u001b[0m"
+    },
+    "break",
+    {
+      "type": "memory",
+      "key": " \u001b[1;38;2;192;132;252m\udb81\ude1a memory\u001b[0m"
+    },
+    "break",
+    {
+      "type": "command",
+      "key": " \u001b[1;38;2;192;132;252m\udb81\udf5a music \u001b[0m",
+      "text": "/home/ym1co/.local/bin/fastfetch-music"
+    },
+    "break",
+    {
+      "type": "custom",
+      "format": " \u001b[38;2;147;51;234m\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u001b[0m"
+    },
+    {
+      "type": "colors",
+      "symbol": "circle"
+    }
+  ]
+}

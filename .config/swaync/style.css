@@ -1,0 +1,178 @@
+@import url("/home/ym1co/.config/waybar/radius.css");
+@import url("/home/ym1co/.config/waybar/colors.css");
+
+* {
+    font-weight: 600;
+    font-size: 11px;
+    outline: none;
+}
+
+/* Ensure all window and layer backgrounds are strictly transparent */
+window,
+window.background,
+window.floating-notifications,
+.floating-notifications,
+.floating-notifications.background,
+.floating-notifications scrolledwindow,
+.floating-notifications viewport,
+.floating-notifications list,
+.blank-window,
+window#control-center-window {
+    background: transparent;
+    background-color: transparent;
+}
+
+/* On-Screen Notification Toast Popups */
+.notification-row {
+    outline: none;
+    margin: 6px 12px;
+    padding: 0px;
+    background: transparent;
+}
+
+.notification-row .notification-background {
+    background: @bg;
+    border: 1px solid @accent;
+    padding: 10px 14px;
+    color: @text;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.85);
+}
+
+.notification-row .notification-background .summary {
+    font-size: 12px;
+    font-weight: 800;
+    color: @accent;
+    margin-bottom: 3px;
+}
+
+.notification-row .notification-background .body {
+    font-size: 10.5px;
+    color: @text;
+}
+
+.notification-row .notification-background .time {
+    font-size: 9px;
+    color: @text_dim;
+}
+
+.notification-row .notification-background .close-button {
+    background: transparent;
+    color: @text_dim;
+    border: none;
+    padding: 2px 6px;
+    font-size: 11px;
+}
+
+.notification-row .notification-background .close-button:hover {
+    background: @accent;
+    color: @accent_fg;
+}
+
+/* Control Center (Centered GNOME-Style Notification Center Drawer) */
+.control-center {
+    background: @bg;
+    border: 2px solid @accent;
+    padding: 16px;
+    color: @text;
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.95);
+}
+
+/* Title & Clear All Header Widget */
+.widget-title {
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid @border_container;
+}
+
+.widget-title > label {
+    font-size: 13px;
+    font-weight: 800;
+    color: @accent;
+    letter-spacing: 1px;
+}
+
+.widget-title > button {
+    background: @bg_card;
+    color: @accent;
+    border: 1px solid @border_card;
+    padding: 5px 12px;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: all 0.15s ease;
+}
+
+.widget-title > button:hover {
+    background: @accent;
+    color: @accent_fg;
+    border-color: @accent;
+}
+
+/* Do Not Disturb Toggle Widget */
+.widget-dnd {
+    background: @bg_card;
+    border: 1px solid @border_card;
+    padding: 8px 12px;
+    margin-bottom: 12px;
+}
+
+.widget-dnd > label {
+    font-size: 11px;
+    font-weight: 700;
+    color: @text;
+}
+
+.widget-dnd > switch {
+    background: #1a1a1a;
+    border: 1px solid #333333;
+}
+
+.widget-dnd > switch:checked {
+    background: @accent;
+    border-color: @accent;
+}
+
+.widget-dnd > switch slider {
+    background: #ffffff;
+}
+
+/* Notification Items inside Control Center */
+.control-center .notification-row .notification-background {
+    background: @bg_card;
+    border: 1px solid @border_card;
+    margin-bottom: 6px;
+    box-shadow: none;
+}
+
+.control-center .notification-row .notification-background:hover {
+    border-color: @accent;
+}
+
+/* Empty State */
+.placeholder {
+    margin: 40px 0;
+}
+
+.placeholder > label {
+    font-size: 12px;
+    font-weight: 700;
+    color: @text_dim;
+    letter-spacing: 1px;
+}
+
+/* Completely hide scrollbars - scroll purely with mouse wheel */
+scrollbar,
+scrollbar *,
+scrollbar.vertical,
+scrollbar.horizontal,
+scrollbar trough,
+scrollbar slider {
+    opacity: 0;
+    min-width: 0px;
+    min-height: 0px;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+    background: transparent;
+    box-shadow: none;
+}
