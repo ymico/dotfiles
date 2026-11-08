@@ -1,0 +1,26 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="stylesheet.qss">stylesheet.qss</file>
+        <file alias="config.json">config.json</file>
+        <file alias="icons/branch-open.svg">icons/branch-open.svg</file>
+        <file alias="icons/branch-closed.svg">icons/branch-closed.svg</file>
+        <file alias="icons/checkbox-checked.svg">icons/checkbox-checked.svg</file>
+        <file alias="icons/checkbox-unchecked.svg">icons/checkbox-unchecked.svg</file>
+        <file alias="icons/radio-checked.svg">icons/radio-checked.svg</file>
+        <file alias="icons/radio-unchecked.svg">icons/radio-unchecked.svg</file>
+        <file alias="icons/arrow-up.svg">icons/arrow-up.svg</file>
+        <file alias="icons/arrow-down.svg">icons/arrow-down.svg</file>
+    </qresource>
+    <qresource prefix="/uitheme">
+        <file alias="stylesheet.qss">stylesheet.qss</file>
+        <file alias="config.json">config.json</file>
+        <file alias="icons/branch-open.svg">icons/branch-open.svg</file>
+        <file alias="icons/branch-closed.svg">icons/branch-closed.svg</file>
+        <file alias="icons/checkbox-checked.svg">icons/checkbox-checked.svg</file>
+        <file alias="icons/checkbox-unchecked.svg">icons/checkbox-unchecked.svg</file>
+        <file alias="icons/radio-checked.svg">icons/radio-checked.svg</file>
+        <file alias="icons/radio-unchecked.svg">icons/radio-unchecked.svg</file>
+        <file alias="icons/arrow-up.svg">icons/arrow-up.svg</file>
+        <file alias="icons/arrow-down.svg">icons/arrow-down.svg</file>
+    </qresource>
+</RCC>
