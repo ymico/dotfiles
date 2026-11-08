@@ -1,0 +1,16 @@
+Windows Registry Editor Version 5.00
+
+; Hide Widgets (Weather / Stocks ticker), Chat, Task View & Copilot
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"TaskbarDa"=dword:00000000
+"TaskbarMn"=dword:00000000
+"ShowTaskViewButton"=dword:00000000
+"ShowCopilotButton"=dword:00000000
+
+; Clean Search on Taskbar (0 = Hidden, search still works when opening Start menu)
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search]
+"SearchboxTaskbarMode"=dword:00000000
+
+; Disable Copilot
+[HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\WindowsCopilot]
+"TurnOffWindowsCopilot"=dword:00000001
