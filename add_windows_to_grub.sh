@@ -28,6 +28,13 @@ EOF'
     echo "SUCCESS: Windows Boot Manager added via 40_custom entry!"
 fi
 
+# Configure passwordless reboot-to-windows for Rofi powermenu
+echo ""
+echo "=== Configuring 1-Click Reboot to Windows for Rofi ==="
+echo "ym1co ALL=(ALL) NOPASSWD: /usr/sbin/efibootmgr -n [0-9A-Fa-f]*" | sudo tee /etc/sudoers.d/99-reboot-to-windows >/dev/null
+sudo chmod 0440 /etc/sudoers.d/99-reboot-to-windows
+echo "SUCCESS: 1-Click Windows reboot configured without password prompts."
+
 echo ""
 echo "Current Boot Order:"
 efibootmgr | grep -E "BootOrder|Boot000"
