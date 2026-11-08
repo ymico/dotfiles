@@ -1,4 +1,4 @@
-# ====================================================================
+﻿# ====================================================================
 # Windows Post-Install Automation Script (Amethyst / Gaming Edition)
 # 
 # Features:
@@ -55,13 +55,21 @@ Set-ItemProperty -Path $MousePath -Name "MouseSensitivity" -Value "10" -Type Str
 Write-Host "[3/9] Installing Bibata-Modern-Classic Cursor Theme..." -ForegroundColor Yellow
 
 $BibataUrl = "https://github.com/ful1e5/Bibata_Cursor/releases/download/v2.0.7/Bibata-Modern-Classic-Windows.zip"
+$LocalBibataZip = Join-Path $PSScriptRoot "Bibata-Modern-Classic-Windows.zip"
 $BibataZip = "$env:TEMP\bibata.zip"
 $BibataTempDir = "$env:TEMP\bibata_extracted"
 $SystemCursorsDir = "$env:WINDIR\Cursors\Bibata-Modern-Classic"
 
 Try {
-    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 -bor [Net.SecurityProtocolType]::Tls13
-    Invoke-WebRequest -Uri $BibataUrl -OutFile $BibataZip -UseBasicParsing
+    If (Test-Path $LocalBibataZip) {
+        Write-Host "  Using local offline Bibata package..." -ForegroundColor Cyan
+        $BibataZip = $LocalBibataZip
+    } Else {
+        Write-Host "  Downloading Bibata package from GitHub..." -ForegroundColor Cyan
+        [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 -bor [Net.SecurityProtocolType]::Tls13
+        Invoke-WebRequest -Uri $BibataUrl -OutFile $BibataZip -UseBasicParsing
+    }
+    
     Expand-Archive -Path $BibataZip -DestinationPath $BibataTempDir -Force
 
     $SourceDir = "$BibataTempDir\Bibata-Modern-Classic-Regular-Windows"
@@ -106,7 +114,7 @@ Try {
     [User32]::SystemParametersInfo(0x0057, 0, [IntPtr]::Zero, 0x01 -bor 0x02) | Out-Null
 
     # Cleanup temp
-    Remove-Item $BibataZip -Force -ErrorAction SilentlyContinue
+    If ($BibataZip -ne $LocalBibataZip) { Remove-Item $BibataZip -Force -ErrorAction SilentlyContinue }
     Remove-Item $BibataTempDir -Recurse -Force -ErrorAction SilentlyContinue
     Write-Host "  Bibata-Modern-Classic installed and activated!" -ForegroundColor Green
 } Catch {
@@ -238,17 +246,24 @@ ForEach ($App in $Apps) {
 Write-Host "[9/9] Installing Rustcord (Native Discord Client in Rust)..." -ForegroundColor Yellow
 
 $RustcordDir = "$env:LOCALAPPDATA\Rustcord"
+$LocalRustcordZip = Join-Path $PSScriptRoot "rustcord-windows-x86_64.zip"
 $RustcordZip = "$env:TEMP\rustcord-windows-x86_64.zip"
 $RustcordUrl = "https://github.com/ymico/rustcord/releases/download/v0.1.0/rustcord-windows-x86_64.zip"
 
 Try {
     If (!(Test-Path $RustcordDir)) { New-Item -ItemType Directory -Path $RustcordDir -Force | Out-Null }
-    Write-Host "  Downloading Rustcord v0.1.0 from GitHub..." -ForegroundColor Cyan
-    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 -bor [Net.SecurityProtocolType]::Tls13
-    Invoke-WebRequest -Uri $RustcordUrl -OutFile $RustcordZip -UseBasicParsing
+    
+    If (Test-Path $LocalRustcordZip) {
+        Write-Host "  Using local offline Rustcord package..." -ForegroundColor Cyan
+        $RustcordZip = $LocalRustcordZip
+    } Else {
+        Write-Host "  Downloading Rustcord v0.1.0 from GitHub..." -ForegroundColor Cyan
+        [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 -bor [Net.SecurityProtocolType]::Tls13
+        Invoke-WebRequest -Uri $RustcordUrl -OutFile $RustcordZip -UseBasicParsing
+    }
     
     Expand-Archive -Path $RustcordZip -DestinationPath $RustcordDir -Force
-    Remove-Item $RustcordZip -Force -ErrorAction SilentlyContinue
+    If ($RustcordZip -ne $LocalRustcordZip) { Remove-Item $RustcordZip -Force -ErrorAction SilentlyContinue }
     
     $WshShell = New-Object -ComObject WScript.Shell
     

@@ -1,0 +1,5 @@
+Windows Registry Editor Version 5.00
+
+; Disable Sticky Keys Popup (No Shift x5 desktop interruptions)
+[HKEY_CURRENT_USER\Control Panel\Accessibility\StickyKeys]
+"Flags"="506"

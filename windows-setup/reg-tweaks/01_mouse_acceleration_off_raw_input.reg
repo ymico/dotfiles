@@ -1,0 +1,9 @@
+Windows Registry Editor Version 5.00
+
+; Disable "Enhance pointer precision" / Mouse Acceleration
+; Sets mouse speed to 0 and threshold to 0 for pure 1:1 raw input (essential for CS2 / Rust)
+[HKEY_CURRENT_USER\Control Panel\Mouse]
+"MouseSpeed"="0"
+"MouseThreshold1"="0"
+"MouseThreshold2"="0"
+"MouseSensitivity"="10"

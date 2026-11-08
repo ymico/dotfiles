@@ -1,0 +1,6 @@
+Windows Registry Editor Version 5.00
+
+; Hardware Clock UTC (RealTimeIsUniversal = 1)
+; Prevents clock desync when dual-booting with Linux (Fedora)
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation]
+"RealTimeIsUniversal"=dword:00000001
